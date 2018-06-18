@@ -1,0 +1,17 @@
+{
+  "name": "simple-cypress-test",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "CYPRESS_baseUrl=http://localhost:3000/ cypress open",
+    "test:headless:local": "CYPRESS_baseUrl=http://localhost:3000/ cypress run",
+    "test:headless": "cypress run"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {},
+  "dependencies": {
+    "cypress": "^3.0.1"
+  }
+}

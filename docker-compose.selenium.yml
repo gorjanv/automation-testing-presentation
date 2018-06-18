@@ -1,0 +1,35 @@
+version: '3'
+services:
+  app:
+    build: ./app
+    ports:
+      - "3000:3000"
+    logging:
+      driver: none
+    networks:
+      app_net:
+        ipv4_address: 172.16.86.10
+
+  advanced-selenium-test:
+    build: ./03-advanced-selenium-test
+    links:
+      - app
+    volumes:
+      - .:/screenshots
+    environment:
+      - BASE_URL=http://172.16.86.10:3000/
+      - SCREENSHOTS=/screenshots
+      - HEADLESS=true
+    depends_on:
+      - app
+    networks:
+      app_net:
+        ipv4_address: 172.16.86.11
+
+networks:
+  app_net:
+    driver: bridge
+    ipam:
+      driver: default
+      config:
+        - subnet: 172.16.86.0/24

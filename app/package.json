@@ -1,0 +1,34 @@
+{
+  "name": "at-presentation",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "clean": "rimraf ./dist",
+    "copy-static": "mkdir -p ./dist/static && cp ./static/*.* ./dist/static",
+    "bundle": "webpack",
+    "build": "TARGET_ENV=production npm run clean && npm run copy-static && npm run bundle",
+    "start": "TARGET_ENV=development nodemon ./dist/server.js",
+    "watch": "TARGET_ENV=development webpack --watch --progress",
+    "docker-build": "docker build -t at-presentation-app .",
+    "docker-run": "docker run -p 8000:3000 -d at-presentation-app"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.16.3",
+    "react": "^16.4.0",
+    "react-dom": "^16.4.0",
+    "styled-components": "^3.3.2",
+    "whatwg-fetch": "^2.0.4"
+  },
+  "devDependencies": {
+    "babel-core": "^6.26.3",
+    "babel-loader": "^7.1.4",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-react": "^6.24.1",
+    "nodemon": "^1.17.5",
+    "webpack": "^4.11.1",
+    "webpack-cli": "^3.0.3"
+  }
+}
