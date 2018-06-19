@@ -6,6 +6,7 @@ First you need to build target application. To do that you need to run:
 Run the target application:
 `npm start`
 
+To access the app you need to use username/password: admin@testapp.com / secret
 
 # 01-simple-selenium-test
 
